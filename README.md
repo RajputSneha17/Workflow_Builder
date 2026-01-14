@@ -1,16 +1,41 @@
-# React + Vite
+# Workflow Builder UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple visual workflow builder built with **React**.  
+Users can create workflows using **Action**, **Branch (If/Else)**, and **End** nodes.
 
-Currently, two official plugins are available:
+🔗 **Live Demo:**  
+https://melodic-gumption-6272ff.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
+- Add Action / Branch / End nodes
+- Branch with If / Else paths
+- Edit node labels
+- Delete nodes with auto reconnect
+- Undo / Redo support
+- Save workflow (logs data to console)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
+- React (Hooks)
+- JavaScript
+- CSS (No UI libraries)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Workflow Model
+```js
+{
+  id,
+  type,
+  label,
+  children
+}
+```
+## Run Locally
+```
+npm install
+npm run dev
+
