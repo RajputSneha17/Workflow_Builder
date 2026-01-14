@@ -1,0 +1,193 @@
+/* ========== Global reset ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Page background */
+body {
+  background-color: #f3f4f6;
+}
+
+/* ========== Navbar style ========== */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 28px;
+  background-color: #1f2937;
+  color: #ffffff;
+}
+
+/* Navbar title */
+.heading h1 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Navbar buttons */
+.nav-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-buttons button {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  background-color: #3b82f6;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.nav-buttons button:hover {
+  background-color: #2563eb;
+}
+
+/* ========== Main workflow area ========== */
+main {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Start button style */
+main button {
+  padding: 12px 32px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: 2px solid #10b981;
+  background-color: #ffffff;
+  color: #10b981;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+main button:hover {
+  background-color: #10b981;
+  color: #ffffff;
+}
+
+/* ========== Popup menu style ========== */
+.popup {
+  list-style: none;
+  margin-top: 14px;
+  width: 170px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.popup li {
+  padding: 10px 0;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.popup li:hover {
+  background-color: #e5edff;
+}
+
+/* ========== Workflow container ========== */
+.boxes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  margin-top: 40px;
+}
+
+/* ========== Workflow node ========== */
+.box {
+  min-width: 140px;
+  height: 60px;
+  border: 2px dashed #3b82f6;
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: #1e3a8a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  position: relative;
+  cursor: pointer;
+}
+
+/* ---------- Vertical connection (down) ---------- */
+.box::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 40px;
+  background-color: #9ca3af;
+  left: 50%;
+  bottom: -40px;
+  transform: translateX(-50%);
+}
+
+/* ========== Branch group (if / else) ========== */
+.branch-group {
+  display: flex;
+  gap: 80px;
+  position: relative;
+}
+
+/* Horizontal split line */
+.branch-group::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #9ca3af;
+  top: -25px;
+  left: 0;
+}
+
+/* Vertical line from split to each branch box */
+.branch-group .box::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 25px;
+  background-color: #9ca3af;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Stop line after last node */
+.boxes > .box:last-child::after {
+  display: none;
+} 
+
+.box input {
+  border: none;
+  outline: none;
+  text-align: center;
+  font-weight: 600;
+  color: #1e3a8a;
+  width: 100%;
+  background: transparent;
+}
+
+
+.delete {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  padding: 2px 6px;
+  cursor: pointer;
+}
